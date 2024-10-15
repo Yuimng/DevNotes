@@ -15,6 +15,9 @@ coverage
 *.local
 .npmrc
 
+# vitepress
+docs/.vitepress/dist
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
