@@ -4,6 +4,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "DevNotes",
   description: "开发笔记",
+  base: '/DevNotes/',
   head: [ // 网站图标
     ['link', { rel: 'icon',  href: '/favicon.ico' }],
   ],
