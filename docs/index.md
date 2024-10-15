@@ -17,7 +17,7 @@ hero:
       link: /javascript/started
     - theme: alt
       text: GitHub
-      link: https://github.com/Yuimng
+      link: https://github.com/Yuimng/DevNotes
 features:
   
   - title: HTML 相关

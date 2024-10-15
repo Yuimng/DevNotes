@@ -14,13 +14,13 @@ export default defineConfig({
   themeConfig: {
     logo: '/logo.svg',
     // 编辑链接
-    // editLink: {
-    //   pattern: 'https://github.com/themusecatcher/front-end-notes/tree/master/docs/:path',
-    //   text: 'Suggest changes to this page'
-    // },
+    editLink: {
+      pattern: 'https://github.com/Yuimng/DevNotes/tree/main/docs/:path',
+      text: '建议修改此页'
+    },
     // 默认支持icon包括：'discord'|'facebook'|'github'|'instagram'|'linkedin'|'mastodon'|'slack'|'twitter'|'youtube'
     socialLinks: [
-      { icon: 'github', link: '' }
+      { icon: 'github', link: 'https://github.com/Yuimng/DevNotes' }
     ],
     search: { // vitepress 内置 search
       provider: 'local'
@@ -29,7 +29,6 @@ export default defineConfig({
     //   message: 'Released under the MIT License.',
     //   copyright: 'Copyright © 2023-present The Muse Catcher'
     // },
-
     nav: [
       { text: 'JavaScript', link: '/javascript/started', activeMatch: '/javascript/' },
       {
