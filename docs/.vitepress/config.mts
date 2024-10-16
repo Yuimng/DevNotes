@@ -6,7 +6,7 @@ export default defineConfig({
   description: "开发笔记",
   base: '/DevNotes/',
   head: [ // 网站图标
-    ['link', { rel: 'icon', href: '/favicon.ico' }]
+    ['link', { rel: 'icon', href: '/DevNotes/favicon.ico' }]
   ],
   appearance: true, // 默认 true，设为 false 则无法切换dark/light主题，可选 'dark' true false
   markdown: {
