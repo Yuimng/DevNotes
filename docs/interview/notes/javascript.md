@@ -671,3 +671,214 @@ const lazyLoad = () => {
 document.addEventListener("scroll", _.throttle(lazyLoad, 200)); //加节流监听滚动事件
 ```
 
+## 设计模式
+
+###  单例设计模式
+
+基于单独的实例来管理某一个模块中的内容，实现模块之间的独立划分，而且还可以实现模块之间方法的相互调用。
+
+```javascript
+// 程序员A开发的模块A
+var AModule = (function () {
+  var data = [];
+
+  function bindHTML() {
+    // ...
+  }
+
+  function change() {
+    // ...
+  }
+
+  return {
+    change: change
+  }
+})();
+
+// 程序员B开发的模块B
+var BModule = (function () {
+  var data = [];
+
+  function bindHTML() {
+    // ...
+  }
+
+  AModule.change();
+
+  return {
+    bindHTML: bindHTML
+  }
+})();
+```
+
+```javascript
+// 从业务来讲：按照一定的顺序依次执行对应的方法，从而实现整个板块的功能的开发
+let SearchModule = (function () {
+  let body = document.body
+
+  function queryData() {}
+
+  function bindHTML() {}
+
+  function handle() {}
+
+  return {
+    // init 相当于大脑，可以控制谁先执行，谁后执行 结合[命令模式]
+    init: function () {
+      queryData();
+      bindHTML();
+      handle();
+    }
+  }
+})();
+
+SearchModule.init();
+```
+
+### 构造器模式
+单例设计模式关联影响问题
+```javascript
+let AModule = (function () {
+    let arr = [];
+
+    let change = function change(val) {
+        arr.push(val);
+        console.log(arr);
+    };
+
+    return {
+        change: change
+    };
+})();
+
+AModule.change(10); 
+AModule.change(20);
+// 如果不想每一次执行change,都修改使用相同的东西,这样会产生关联和影响? 
+```
+
+Constructor [kənˈstrʌktər]构造器模式
+  + 类&实例
+  + 私有&公有属性方法
+  + 插件组件封装
+
+```javascript
+// AModule:类「构造函数」
+class AModule {
+    constructor() {
+        // this->每个类的实例
+        this.arr = [];
+    }
+    // 原型上 公共的属性和方法
+    change(val) {
+        this.arr.push(val);
+        console.log(this.arr);
+    }
+}
+
+let A1 = new AModule;
+let A2 = new AModule;
+console.log(A1, A2);
+console.log(A1 === A2); //->false
+console.log(A1.arr === A2.arr); //->false
+console.log(A1.change === A2.change); //->true
+A1.change(10);
+A2.change(20); 
+
+```
+
+构造器模式的每一个实例都是一个单独的空间，有自己的私有属性和方法，也有公共的属性方法。
+
+### 工厂模式
+
+
+Factory [ˈfæktri]工厂模式
+  + 简单的工厂模式
+
+项目：一个产品 调用数据库，根据量级或者需求等不同的因素，我们需要让产品切换调用到不同的数据库中 oracle sqlserver mysql  -> DB层，根据逻辑或者标识，能切换连接的数据库
+
+工厂模式：工厂可以帮助我们实现调用的切换，或者实现一些中转的处理
+
+```javascript
+function factory(options) {
+    options = options || {};
+    let {
+        type,
+        payload
+    } = options;
+    if (type === 'array') {
+        // 执行A，完成一个逻辑
+        return;
+    }
+    // 执行B，完成另外的逻辑
+}
+factory({
+    type: 'array',
+    payload: 100
+});
+
+factory({
+    type: 'object',
+    payload: 'zhufeng'
+}); 
+```
+
+### 观察者模式
+
+```javascript
+// 观察者模式:vue2.0响应式原理...
+class Observer {
+    update(message) {
+        // 消息触达，通知update执行
+        console.log('消息接收！', message);
+    }
+}
+class Demo {
+    update(message) {
+        console.log('消息接收！', message);
+    }
+}
+
+//目标
+class ObserverList {
+    constructor() {
+        this.observerList = [];
+    }
+    add(observer) {
+        this.observerList.push(observer);
+        return this;
+    }
+    remove(observer) {
+        this.observerList = this.observerList.filter(ob => ob !== observer);
+        return this;
+    }
+    get(index) {
+        return this.observerList[index];
+    }
+    count() {
+        return this.observerList.length;
+    }
+}
+class Subject {
+    observers = new ObserverList;
+    add(observer) {
+        this.observers.add(observer);
+    }
+    remove(observer) {
+        this.observers.remove(observer);
+    }
+    notify(...params) {
+        for (let i = 0; i < this.observers.count(); i++) {
+            let item = this.observers.get(i);
+            item.update(...params);
+        }
+    }
+}
+
+let sub = new Subject;
+sub.add(new Observer);
+sub.add(new Observer);
+sub.add(new Demo);
+setTimeout(() => {
+    sub.notify('你好~~');
+}, 1000);
+```
