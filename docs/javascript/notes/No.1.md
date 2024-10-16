@@ -9,6 +9,27 @@ values = [...mySet]
 console.log(values) // [1, 2, 3, 4]
 ```
 
+## 实现图片懒加载原理
+
+```js
+const images = document.querySelectorAll("img");
+const lazyLoad = () => {
+    images.forEach((item) => {
+        // 触发条件为img元素的CSSOM对象到视口顶部的距离 < 100px + 视口高度
+        // +100px为了提前触发图片加载
+        if (
+            item.getBoundingClientRect().top <
+            document.documentElement.clientHeight + 100
+        ) {
+            if ("src" in item.dataset) {
+                item.src = item.dataset.src;   // 临时存放  img data-src=""
+            }
+        }
+    });
+};
+document.addEventListener("scroll", _.throttle(lazyLoad, 200)); //加节流监听滚动事件
+```
+
 ## 监听滚动条变化
 
 ```js

@@ -32,6 +32,7 @@ export default defineConfig({
     // },
     nav: [
       { text: 'JavaScript', link: '/javascript/started', activeMatch: '/javascript/' },
+      { text: 'Interview', link: '/interview/started', activeMatch: '/interview/' },
       {
         text: 'Links',
         items: [
@@ -41,6 +42,26 @@ export default defineConfig({
           { text: 'Arco Design Vue', link: 'https://arco.design/vue/docs/start' },
           {
             items: [
+              {
+                text: 'Vue 2 Docs',
+                link: 'https://v2.cn.vuejs.org/v2/guide/'
+              },
+              {
+                text: 'Vue 3 Docs',
+                link: 'https://cn.vuejs.org/guide/introduction.html'
+              },
+              {
+                text: 'VueUse',
+                link: 'https://vueuse.org/'
+              },
+              {
+                text: 'TypeScript Docs',
+                link: 'https://www.tslang.cn/docs/home.html'
+              },
+              {
+                text: 'MDN Web Docs',
+                link: 'https://developer.mozilla.org/zh-CN/'
+              },
               {
                 text: 'Vite',
                 link: 'https://cn.vitejs.dev/'
@@ -60,37 +81,8 @@ export default defineConfig({
               {
                 text: 'npm',
                 link: 'https://www.npmjs.com/'
-              },
-              {
-                text: 'pnpm',
-                link: 'https://www.pnpm.cn/'
               }
             ]
-          }
-        ]
-      },
-      {
-        text: 'Docs',
-        items: [
-          {
-            text: 'Vue 2 Docs',
-            link: 'https://v2.cn.vuejs.org/v2/guide/'
-          },
-          {
-            text: 'Vue 3 Docs',
-            link: 'https://cn.vuejs.org/guide/introduction.html'
-          },
-          {
-            text: 'VueUse',
-            link: 'https://vueuse.org/'
-          },
-          {
-            text: 'TypeScript Docs',
-            link: 'https://www.tslang.cn/docs/home.html'
-          },
-          {
-            text: 'MDN Web Docs',
-            link: 'https://developer.mozilla.org/zh-CN/'
           }
         ]
       }
@@ -112,6 +104,42 @@ export default defineConfig({
             {
               text: 'No.1',
               link: '/javascript/notes/No.1'
+            },
+          ]
+        }
+      ],
+      '/interview/': [
+        {
+          text: '指引',
+          items: [
+            {
+              text: '开始',
+              link: '/interview/started'
+            }
+          ]
+        },
+        {
+          text: 'Interview Notes',
+          items: [
+            {
+              text: 'javascript',
+              link: '/interview/notes/javascript'
+            },
+            {
+              text: 'vue',
+              link: '/interview/notes/vue'
+            },
+            {
+              text: 'node',
+              link: '/interview/notes/node'
+            },
+            {
+              text: 'http',
+              link: '/interview/notes/http'
+            },
+            {
+              text: 'project',
+              link: '/interview/notes/project'
             },
           ]
         }
