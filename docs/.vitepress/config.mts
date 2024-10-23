@@ -31,6 +31,7 @@ export default defineConfig({
     //   copyright: 'Copyright © 2023-present The Muse Catcher'
     // },
     nav: [
+      { text: 'CSS', link: '/css/started', activeMatch: '/css/' },
       { text: 'JavaScript', link: '/javascript/started', activeMatch: '/javascript/' },
       { text: 'Interview', link: '/interview/started', activeMatch: '/interview/' },
       {
@@ -88,6 +89,26 @@ export default defineConfig({
       }
     ],
     sidebar: {
+      '/css/': [
+        {
+          text: '指引',
+          items: [
+            {
+              text: '开始',
+              link: '/css/started'
+            }
+          ]
+        },
+        {
+          text: 'CSS Notes',
+          items: [
+            {
+              text: 'No.1',
+              link: '/css/notes/No.1'
+            },
+          ]
+        }
+      ],
       '/javascript/': [
         {
           text: '指引',
