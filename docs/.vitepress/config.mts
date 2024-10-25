@@ -162,6 +162,10 @@ export default defineConfig({
               text: 'project',
               link: '/interview/notes/project'
             },
+            {
+              text: '性能优化',
+              link: '/interview/notes/性能优化'
+            },
           ]
         }
       ]
