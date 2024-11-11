@@ -67,7 +67,7 @@ SSE适用于需要服务端到客户端单向通信的场景，例如：
 创建一个HTTP服务器。
 对于每个连接，设置一个interval定时器，定时发送事件。
 如果连接关闭，清除定时器。
-```javacript
+```javascript
 const http = require('http');
  
 const server = http.createServer();
