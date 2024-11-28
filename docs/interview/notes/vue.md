@@ -143,6 +143,15 @@ key 这个特殊的 attribute 主要作为 Vue 的虚拟 DOM 算法提示，在�
 原文链接：https://blog.csdn.net/aaa123aaasqw/article/details/140180854
 
 
+### vue3 和 vue2 的区别
+
+1、代码编写方式，V3 引入的 Composition api 相对于 V2 的优势
+2、对 template 模板的编制优化，缩小了 template 模板和 JSX 的差距
+3、响应式的差异及 V3 优化后的优势
+4、diff 算法的优化
+5、TS 引入的优点和缺点
+6、V3 的引入的 hook 相对于 V2 的优势，V2 用 mixins 的缺点
+
 
 ## 虚拟DOM
 
