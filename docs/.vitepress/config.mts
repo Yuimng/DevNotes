@@ -33,6 +33,7 @@ export default defineConfig({
     nav: [
       { text: 'CSS', link: '/css/started', activeMatch: '/css/' },
       { text: 'JavaScript', link: '/javascript/started', activeMatch: '/javascript/' },
+      { text: 'LeetCode', link: '/leetcode/started', activeMatch: '/leetcode/' },
       { text: 'Interview', link: '/interview/started', activeMatch: '/interview/' },
       {
         text: 'Links',
@@ -129,6 +130,26 @@ export default defineConfig({
             {
               text: 'No.2',
               link: '/javascript/notes/No.2'
+            },
+          ]
+        }
+      ],
+      '/leetcode/': [
+        {
+          text: '指引',
+          items: [
+            {
+              text: '开始',
+              link: '/leetcode/started'
+            }
+          ]
+        },
+        {
+          text: 'leetcode Notes',
+          items: [
+            {
+              text: 'No.1',
+              link: '/leetcode/notes/No.1'
             },
           ]
         }
