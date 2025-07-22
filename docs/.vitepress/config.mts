@@ -31,6 +31,7 @@ export default defineConfig({
     //   copyright: 'Copyright © 2023-present The Muse Catcher'
     // },
     nav: [
+      { text: 'NestJS', link: '/nestjs/started', activeMatch: '/nestjs/' },
       { text: 'CSS', link: '/css/started', activeMatch: '/css/' },
       { text: 'JavaScript', link: '/javascript/started', activeMatch: '/javascript/' },
       { text: 'LeetCode', link: '/leetcode/started', activeMatch: '/leetcode/' },
@@ -44,10 +45,6 @@ export default defineConfig({
           { text: 'Arco Design Vue', link: 'https://arco.design/vue/docs/start' },
           {
             items: [
-              {
-                text: 'Vue 2 Docs',
-                link: 'https://v2.cn.vuejs.org/v2/guide/'
-              },
               {
                 text: 'Vue 3 Docs',
                 link: 'https://cn.vuejs.org/guide/introduction.html'
@@ -90,6 +87,26 @@ export default defineConfig({
       }
     ],
     sidebar: {
+      '/nestjs/': [
+        {
+          text: '指引',
+          items: [
+            {
+              text: '开始',
+              link: '/nestjs/started'
+            }
+          ]
+        },
+        {
+          text: 'Nestjs Notes',
+          items: [
+            {
+              text: 'No.1',
+              link: '/nestjs/notes/No.1'
+            },
+          ]
+        }
+      ],
       '/css/': [
         {
           text: '指引',
